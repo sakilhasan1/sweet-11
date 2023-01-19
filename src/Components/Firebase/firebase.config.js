@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBny1U-aeLTAPLZxDfSeE-HUo8OGPugqj4",
-    authDomain: "sweet-restaurants.firebaseapp.com",
-    projectId: "sweet-restaurants",
-    storageBucket: "sweet-restaurants.appspot.com",
-    messagingSenderId: "253923617677",
-    appId: "1:253923617677:web:f765ff137ced3ef8b32bc4"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase
