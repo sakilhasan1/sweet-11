@@ -1,9 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ServiceCart from './ServiceCart';
 
 const Services = () => {
+
+    const [foods, setFoods] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:5000/foods")
+            .then(res => res.json())
+            .then(data => setFoods(data.data))
+    }, [])
     return (
         <div>
-            <h1>services</h1>
+            <div className='grid md:grid-cols-3 md:grid-rows-2 gap-y-4'>
+                {
+                    foods.map(food => <ServiceCart
+                        key={food._id}
+                        food={food}
+                    ></ServiceCart>
+
+                    )
+                },
+            </div>
+
         </div>
     );
 };
