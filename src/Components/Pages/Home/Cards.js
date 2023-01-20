@@ -23,7 +23,7 @@ const Cards = () => {
 
                 </p>
             </div>
-            <div className='grid md:grid-cols-3  gap-y-4  gap-x-4'>
+            <div className='grid md:grid-cols-3  gap-2 ms-3'>
                 {
                     foods.map(food => <Card
                         key={food._id}
