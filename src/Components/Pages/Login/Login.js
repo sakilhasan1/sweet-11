@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -5,7 +6,10 @@ import { AuthContext } from '../../Provider/AuthProvider';
 
 const Login = () => {
 
-    const { login } = useContext(AuthContext)
+    const { login, providerLogin } = useContext(AuthContext);
+
+    const googleProvider = new GoogleAuthProvider()
+
     const navigate = useNavigate()
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -23,6 +27,16 @@ const Login = () => {
                 console.log(user);
                 navigate(from, { replace: true })
                 form.reset()
+            })
+            .catch(error => console.error(error))
+    };
+
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                navigate(from, { replace: true })
             })
             .catch(error => console.error(error))
     }
@@ -51,6 +65,7 @@ const Login = () => {
                                 </label>
                             </div>
                             <button className="btn btn-primary">Login</button>
+                            <button className="btn btn-primary" onClick={handleGoogleSignIn}>SignIn with Google</button>
                         </div>
                     </div>
                 </div>
