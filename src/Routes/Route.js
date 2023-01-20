@@ -47,7 +47,7 @@ const router = createBrowserRouter([
             {
                 path: '/service/:id',
                 element: <CartDetails></CartDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/service/${params.id}`)
+                loader: ({ params }) => fetch(`https://sweet-resturent-server.vercel.app/service/${params.id}`)
             },
         ]
     }

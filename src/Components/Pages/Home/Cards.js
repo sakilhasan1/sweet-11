@@ -7,7 +7,7 @@ const Cards = () => {
     const [foods, setFoods] = useState([])
 
     useEffect(() => {
-        fetch("http://localhost:5000/homeFoods")
+        fetch("https://sweet-resturent-server.vercel.app/homeFoods")
             .then(res => res.json())
             .then(data => setFoods(data.data))
     }, [])
@@ -23,7 +23,7 @@ const Cards = () => {
 
                 </p>
             </div>
-            <div className='grid md:grid-cols-3  gap-2 ms-3'>
+            <div className='grid md:grid-cols-3  gap-4 ms-3'>
                 {
                     foods.map(food => <Card
                         key={food._id}
