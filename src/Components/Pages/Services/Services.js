@@ -12,7 +12,7 @@ const Services = () => {
     }, [])
     return (
         <div>
-            <div className='grid md:grid-cols-3 md:grid-rows-2 gap-y-4'>
+            <div className='grid md:grid-cols-3 md:grid-rows-2 gap-y-4 gap-x-4'>
                 {
                     foods.map(food => <ServiceCart
                         key={food._id}
